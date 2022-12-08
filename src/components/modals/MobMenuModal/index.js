@@ -23,13 +23,13 @@ export const MobMenuModal = ({children}) => {
     const {t} = useTranslation();
     return <BaseModal overlayStyles={overlayStyles} render={({close}) => (
         <S.Wrapper>
-            <S.Item>
+{/*            <S.Item>
                 <LanguageSelector/>
-            </S.Item>
+            </S.Item>*/}
             <S.Item style={{height: "25px"}}>
                 <LocationPickerPopover width={"226px"} backgroundColor={"#1C1C1C"}/>
             </S.Item>
-            <S.Item>
+{/*            <S.Item>
                 <AuthModal>
                     <FlexBox alignItems={"center"}>
                         <SvgIcon  width={"25px"} style={{marginRight: "10px"}}>
@@ -38,7 +38,7 @@ export const MobMenuModal = ({children}) => {
                         Вход в аккаунт
                     </FlexBox>
                 </AuthModal>
-            </S.Item>
+            </S.Item>*/}
             <S.Item>
                 <ContactsModal onClick={() => {
                     close();

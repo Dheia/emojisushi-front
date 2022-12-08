@@ -80,14 +80,14 @@ export const CheckoutFormRaw = (
 
 
     return <S.Form onSubmit={formik.handleSubmit}>
-        <FlexBox style={{marginBottom: "20px"}}>
+{/*        <FlexBox style={{marginBottom: "20px"}}>
             Уже есть аккаунт?
             <AuthModal>
                 <S.SignIn>
                     Войти
                 </S.SignIn>
             </AuthModal>
-        </FlexBox>
+        </FlexBox>*/}
 
         <Switcher
             name={"shipping_id"}
