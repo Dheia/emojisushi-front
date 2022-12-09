@@ -19,7 +19,6 @@ class ProductsService {
             sort: ProductsStore.sort,
             offset: ProductsStore.offset,
             limit: ProductsStore.limit,
-            spot_id: SpotsStore.getSelected,
             ...params,
         }).then(res => {
             ProductsStore.setItems(res.data.data);

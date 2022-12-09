@@ -53,7 +53,6 @@ export const CheckoutFormRaw = (
             setPending(true);
             OrderApi.place({
                 ...values,
-                spot_id: SpotsStore.getSelected
             }).then((res) => {
                 if(res.data?.success) {
                     navigate('/thankyou');

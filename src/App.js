@@ -31,7 +31,7 @@ function App(
         if(!SpotsStore.getSelected) {
             return;
         }
-        LocalStorageService.set('spot_id', SpotsStore.getSelected);
+        LocalStorageService.set('spot_id', SpotsStore.getSelected.id);
 
         Promise.all([
             cartService.clearCart(),
