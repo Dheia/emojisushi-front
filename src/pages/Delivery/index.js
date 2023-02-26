@@ -43,14 +43,11 @@ export const DeliveryRaw = (
                   <S.DeliveryText dangerouslySetInnerHTML={{__html: SpotsStore.content}}/>
               </S.Left>
 
-              {SpotsStore.selectedIndex === 1 && (
+              {SpotsStore.googleMapUrl && (
                 <S.Right>
-                    {SpotsStore.googleMapUrl && (
-                      <iframe src={SpotsStore.googleMapUrl}
-                              width="100%"
-                              height="480"/>
-                    )}
-
+                  <iframe src={SpotsStore.googleMapUrl}
+                          width="100%"
+                          height="480"/>
                 </S.Right>
               )}
           </S.FlexContainer>
