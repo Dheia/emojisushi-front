@@ -31,7 +31,7 @@ export const DeliveryRaw = (
                               fontWeight: "600"
                           }
                       }>
-                          Доставка и оплата
+                          Доставка і оплата
                       </Heading>
                   </S.HeadingWrapper>
 
