@@ -20,7 +20,9 @@ export const LayoutRaw = (
     {
         children,
         withBanner = false,
-        withSidebar= true,
+        withSidebar = true,
+        withRestaurantClosedModal = true,
+        withSpotsModal = true,
         mainProps = {},
         containerProps = {},
         AppStore: {
@@ -46,35 +48,34 @@ export const LayoutRaw = (
     }, [location.pathname])
 
     return (
-        <S.Layout {...rest}>
-            {loading && (<Preloader/>)}
-            <Header/>
-            <S.Main {...mainProps}>
-                <Container {...containerProps}>
-                    {withBanner && <Banner/>}
-                    <S.FlexBox>
-                        {withSidebar && <Sidebar/>}
-                        <S.Content>
-                            {children}
-                        </S.Content>
-                    </S.FlexBox>
-                </Container>
-            </S.Main>
-            <Footer/>
-            <RestaurantClosed open={closed}/>
-            <SpotsModal open={!SpotsStore.userSelectedSpot && !closed}/>
+      <S.Layout {...rest}>
+        {loading && <Preloader />}
+        <Header />
+        <S.Main {...mainProps}>
+          <Container {...containerProps}>
+            {withBanner && <Banner />}
+            <S.FlexBox>
+              {withSidebar && <Sidebar />}
+              <S.Content>{children}</S.Content>
+            </S.FlexBox>
+          </Container>
+        </S.Main>
+        <Footer />
+        {withRestaurantClosedModal && <RestaurantClosed open={closed} />}
+        {withSpotsModal && (
+          <SpotsModal open={!SpotsStore.userSelectedSpot && !closed} />
+        )}
 
-            <Sticky top={"30px"} right={"30px"} show={showStickyCart}>
-                <CartModal>
-                    <div>
-                        <TinyCartButton  price={CartStore.total}/>
-                    </div>
-                </CartModal>
-            </Sticky>
-            <StickyToTopBtn/>
-
-        </S.Layout>
-    )
+        <Sticky top={"30px"} right={"30px"} show={showStickyCart}>
+          <CartModal>
+            <div>
+              <TinyCartButton price={CartStore.total} />
+            </div>
+          </CartModal>
+        </Sticky>
+        <StickyToTopBtn />
+      </S.Layout>
+    );
 }
 
 export const Layout = inject('AppStore', 'CartStore', 'SpotsStore', 'ProductsStore')(observer(LayoutRaw));
