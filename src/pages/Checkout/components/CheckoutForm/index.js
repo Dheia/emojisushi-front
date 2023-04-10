@@ -10,15 +10,12 @@ import * as Yup from "yup";
 import OrderApi from "../../../../api/order.api";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { AuthModal } from "../../../../components/modals/AuthModal";
-import { useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 
 export const CheckoutFormRaw = ({
   PaymentStore,
   ShippingStore,
-  CartStore,
-  SpotsStore,
+  CartStore
 }) => {
   const { t } = useTranslation();
   const [pending, setPending] = useState(false);
@@ -61,7 +58,8 @@ export const CheckoutFormRaw = ({
               wayforpayFormContainer.current.innerHTML = res.data.form;
               wayforpayFormContainer.current.querySelector('form').submit();
           } else if (res.data?.success) {
-            navigate("/thankyou");
+            navigate("/thankyou?order_id=" + res.data.poster_order.incoming_order_id, {
+            });
           }
           setPending(false);
         })

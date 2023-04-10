@@ -13,6 +13,7 @@ export const ThankYouRaw = ({ AppStore }) => {
     AppStore.setLoading(false);
   }, []);
   const { t } = useTranslation();
+  const searchParams = new URLSearchParams(window.location.search);
   return (
     <Layout
       withSidebar={false}
@@ -35,7 +36,9 @@ export const ThankYouRaw = ({ AppStore }) => {
         <SvgIcon color={"#FFE600"} style={{ width: "60px" }}>
           <CheckCircleSvg />
         </SvgIcon>
-        <S.MediumText>{t("thankYou.subtitle")}</S.MediumText>
+        <S.MediumText>
+          {t("thankYou.subtitle", { id: searchParams.get("order_id") })}
+        </S.MediumText>
         <S.Text>{t("thankYou.text")}</S.Text>
       </S.Center>
     </Layout>
