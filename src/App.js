@@ -17,6 +17,7 @@ import {MyOrders} from "./pages/ MyOrders";
 import {productsService} from "./services/products.service";
 import {categoriesService} from "./services/categories.service";
 import {cartService} from "./services/cart.service";
+import { Refund } from "./pages/Refund";
 
 function App(
     {
@@ -55,7 +56,8 @@ function App(
                     <Route path="/account/profile" element={<Profile/>}/>
                     <Route path="/account/recover-password" element={<RecoverPassword/>} />
                     <Route path="/account/saved-addresses" element={<SavedAddresses/>} />
-                    <Route path="/account/orders" element={<MyOrders/>} />
+                    <Route path="/account/orders" element={<MyOrders />} />
+                    <Route path="/refund" element={<Refund/>}/>
                     <Route path="*" element={<Navigate to={"/category/roli"}/>} replace/>
                 </Routes>
             </div>
